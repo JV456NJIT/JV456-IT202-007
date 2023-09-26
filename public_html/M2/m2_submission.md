@@ -31,11 +31,11 @@
 </table></td></tr>
 <table><tr><td> <em>Deliverable 4: </em> Misc Items </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add the prod URL for problem1.php (remember you can assume this based on how the domain gets built (i.e., ucid-prod.herokuapp.com/...)</td></tr>
-<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://it202-jv456-prod-5aec0d224329.herokuapp.comm2/problem1.php">https://it202-jv456-prod-5aec0d224329.herokuapp.comm2/problem1.php</a> </td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://it202-jv456-prod-5aec0d224329.herokuapp.com/M2/problem1.php">https://it202-jv456-prod-5aec0d224329.herokuapp.com/M2/problem1.php</a> </td></tr>
 <tr><td> <em>Sub-Task 2: </em> Add the prod URL for problem2.php (remember you can assume this based on how the domain gets built (i.e., ucid-prod.herokuapp.com/...)</td></tr>
-<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://it202-jv456-prod-5aec0d224329.herokuapp.comm2/problem2.php">https://it202-jv456-prod-5aec0d224329.herokuapp.comm2/problem2.php</a> </td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://it202-jv456-prod-5aec0d224329.herokuapp.com/M2/problem2.php">https://it202-jv456-prod-5aec0d224329.herokuapp.com/M2/problem2.php</a> </td></tr>
 <tr><td> <em>Sub-Task 3: </em> Add the prod URL for problem3.php (remember you can assume this based on how the domain gets built (i.e., ucid-prod.herokuapp.com/...)</td></tr>
-<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://it202-jv456-prod-5aec0d224329.herokuapp.comm2/problem3.php">https://it202-jv456-prod-5aec0d224329.herokuapp.comm2/problem3.php</a> </td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://it202-jv456-prod-5aec0d224329.herokuapp.com/M2/problem3.php">https://it202-jv456-prod-5aec0d224329.herokuapp.com/M2/problem3.php</a> </td></tr>
 <tr><td> <em>Sub-Task 4: </em> Pull Request URL for M2-PHP-HW to dev</td></tr>
 <tr><td> <a rel="noreferrer noopener" target="_blank" href="https://github.com/JV456NJIT/JV456-IT202-007/pull/5">https://github.com/JV456NJIT/JV456-IT202-007/pull/5</a> </td></tr>
 <tr><td> <em>Sub-Task 5: </em> Talk about what you learned, any issues you had, how you resolve them</td></tr>
