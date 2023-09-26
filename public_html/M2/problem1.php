@@ -8,6 +8,7 @@ function processArray($arr) {
     echo "<br>Odds output:<br>";
     //note: use the $arr variable to iterate over, don't directly touch $a1-$a4
     //TODO add logic here to echo out only odd values
+    //JV456 09/26/2023
     for ($i=0; $i<count($arr);$i+=1){
         if ( $arr[$i] % 2 == 1){    
             echo "$arr[$i]";
