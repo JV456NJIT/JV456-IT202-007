@@ -8,6 +8,7 @@ function getTotal($arr) {
     $total = 0.00;
     //note: use the $arr variable, don't directly touch $a1-$a4
     //TODO do adding here
+    //JV456 09/26/2023
     for ($i=0; $i<count($arr);$i+=1){
         $total+=$arr[$i];
     }
