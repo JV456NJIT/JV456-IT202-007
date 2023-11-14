@@ -13,11 +13,11 @@
 .alert-info {
     background-color: teal;
 }
-nav li{display: inline; background-color: blue;}
+nav li{display: inline; background-color: white;}
 nav li a{color: black}
 input{border-radius: 1000%;}
 body{
-    background-color: wheat;
+    background-color: white;
     color: rgb(255, 255, 255);
 
 }
