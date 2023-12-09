@@ -7,7 +7,7 @@ function render_input($data = array())
 
 function render_button($data = array())
 {
-    include(__DIR__ . "/../partials/button.php");
+    include(__DIR__ . "/../partials/buttons.php");
 }
 
 function render_table($data = array())
