@@ -22,14 +22,16 @@ function process_events($result){
     $i = 0;
     foreach ($result as $element){
         foreach ($element as $event){
-            $descriptionData = $event["description"];
             $imageData = $event["image"];
             $artistData = $event["name"];
             $locationData = $event["location"]["name"];
             $timeData = $event["startDate"];
-            $api_idData = $artistData . "P:" . $result["page"] . "E:" .$i;
-            echo $descriptionData,"<br>",$artistData, "<br>", " at the ", $locationData, "<br>" ," on ", date('D-M-d-Y h:i', strtotime($timeData));
+            $timeDataDescription = date('D-M-d-Y h:i', strtotime($timeData));
+            $descriptionData = $artistData . " at the " . $locationData . " on " . $timeDataDescription;
             $timeData = date('Y-m-d H:i:s', strtotime($timeData));
+            $api_idData = $artistData . "P:" . $result["page"] . "E:" .$i;
+            $descriptionData = $artistData . " at the " . $locationData . " on " . $timeData;
+            echo $descriptionData,"<br>",$artistData, "<br>", " at the ", $locationData, "<br>" ," on ", date('D-M-d-Y h:i', strtotime($timeData));
             $query = "INSERT INTO Events (api_id, description, image, artist , location, time) VALUES(:api_id, :description, :image, :artist, :location, :time) ON DUPLICATE KEY UPDATE api_id=api_id";
             $stmt = $db->prepare($query);
             $stmt->bindValue(':api_id',$api_idData,PDO::PARAM_STR);
