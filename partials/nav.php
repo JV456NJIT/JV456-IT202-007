@@ -37,8 +37,8 @@ session_start();
             <li><a href="<?php echo get_url('profile.php'); ?>">Profile</a></li>
         <?php endif; ?>
         <?php if (!is_logged_in()) : ?>
-            <li><a href="<?php echo get_url('login.php'); ?>">Login</a></li>
-            <li><a href="<?php echo get_url('register.php'); ?>">Register</a></li>
+            <li><a href="<?php echo get_url('/public_html/Project/login.php'); ?>">Login</a></li>
+            <li><a href="<?php echo get_url('/public_html/Project/register.php'); ?>">Register</a></li>
         <?php endif; ?>
         <?php if (has_role("Admin")) : ?>
             <li><a href="<?php echo get_url('admin/create_role.php'); ?>">Create Role</a></li>
