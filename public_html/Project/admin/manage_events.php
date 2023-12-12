@@ -24,22 +24,28 @@ function process_events($result){
         foreach ($element as $event){
             $imageData = $event["image"];
             $artistData = $event["name"];
-            $locationData = $event["location"]["name"];
+            $venueData = $event["location"]["name"];
+            $countryData = $event["location"]["address"]["addressCountry"];
+            $localityData = $event["location"]["address"]["addressLocality"];
             $timeData = $event["startDate"];
             $timeDataDescription = date('D-M-d-Y h:i', strtotime($timeData));
-            $descriptionData = $artistData . " at the " . $locationData . " on " . $timeDataDescription;
+            $descriptionData = $artistData . " at the " . $venueData . " on " . $timeDataDescription;
             $timeData = date('Y-m-d H:i:s', strtotime($timeData));
             $api_idData = $artistData . "P:" . $result["page"] . "E:" .$i;
-            $descriptionData = $artistData . " at the " . $locationData . " on " . $timeData;
-            echo $descriptionData,"<br>",$artistData, "<br>", " at the ", $locationData, "<br>" ," on ", date('D-M-d-Y h:i', strtotime($timeData));
-            $query = "INSERT INTO Events (api_id, description, image, artist , location, time) VALUES(:api_id, :description, :image, :artist, :location, :time) ON DUPLICATE KEY UPDATE api_id=api_id";
+            $descriptionData = $artistData . " at the " . $venueData . " on " . $timeData;
+            date_default_timezone_set('America/New_York');
+            $created = date('Y-m-d H:i:s', time());
+            $query = "INSERT INTO Events (api_id, description, image, artist , venue, country, locality, time, created) VALUES(:api_id, :description, :image, :artist, :venue, :country, :locality, :time, :created) ON DUPLICATE KEY UPDATE api_id=api_id";
             $stmt = $db->prepare($query);
             $stmt->bindValue(':api_id',$api_idData,PDO::PARAM_STR);
             $stmt->bindValue(':description',$descriptionData,PDO::PARAM_STR);
             $stmt->bindValue(':image',$imageData,PDO::PARAM_STR);
             $stmt->bindValue(':artist',$artistData,PDO::PARAM_STR);
-            $stmt->bindValue(':location',$locationData,PDO::PARAM_STR);
+            $stmt->bindValue(':venue',$venueData,PDO::PARAM_STR);
+            $stmt->bindValue(':country',$countryData,PDO::PARAM_STR);
+            $stmt->bindValue(':locality',$localityData,PDO::PARAM_STR);
             $stmt->bindValue(':time',$timeData,PDO::PARAM_STR);
+            $stmt->bindValue(':created',$created,PDO::PARAM_STR);
             $stmt->execute();
             $i++;
         }

@@ -1,22 +1,29 @@
 .alert-success {
-    background-color: green
+    background-color: lightblue;
 }
 
 .alert-warning {
-    background-color: yellow;
+    background-color: lightyellow;
 }
 
 .alert-danger {
-    background-color: red;
+    background-color: lightpink;
 }
 
 .alert-info {
-    background-color: teal;
+    background-color: lightgreen;
 }
-nav li{display: inline; background-color: white;}
-nav li a{color: blue}
+nav{
+    display: inline;
+    background: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+nav li a{
+    background: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+}
 body{
-    background-color: white;
+    background: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
     color: rgb(0, 0, 0);
-
+}
+.card{
+    background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }

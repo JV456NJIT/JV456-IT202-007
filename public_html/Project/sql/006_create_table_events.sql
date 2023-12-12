@@ -4,8 +4,12 @@ CREATE TABLE IF NOT EXISTS `Events`(
     `description` VARCHAR(255),
     `image` TEXT,
     `artist` TEXT,
-    `location` TEXT,
+    `venue` TEXT,
+    `country` TEXT,
+    `locality` TEXT,
     `time` TIMESTAMP,
+    `created` TIMESTAMP,
+    `modified` TIMESTAMP,
     PRIMARY KEY (`id`),
     UNIQUE KEY (`api_id`),
     UNIQUE KEY (`description`)
