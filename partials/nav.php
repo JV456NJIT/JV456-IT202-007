@@ -57,7 +57,15 @@ session_start();
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/assign_roles.php'); ?>">Assign</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('admin/manage_events.php'); ?>">Manage Events</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="manageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Manage
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="Manage">
+                            <li><a class="dropdown-item" href="<?php echo get_url('admin/manage_events.php'); ?>">Upload Artist from API</a></li>
+                            <li><a class="dropdown-item" href="<?php echo get_url('admin/event_profile.php'); ?>">Upload Artist Manually</a></li>
+                        </ul>
+                    </li>
                 <?php endif; ?>
                 <?php if (is_logged_in()) : ?>
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('logout.php'); ?>">Logout</a></li>

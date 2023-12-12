@@ -21,6 +21,9 @@ function process_events($result){
     $db = getDB();
     $i = 0;
     foreach ($result as $element){
+        if (!is_array($element)){
+            continue;
+        }
         foreach ($element as $event){
             $imageData = $event["image"];
             $artistData = $event["name"];
@@ -54,7 +57,7 @@ function process_events($result){
 ?>
 
 <div class="container-fluid">
-    <h1>Artist Event Manager</h1>
+    <h1>Artist Event Uploader</h1>
     <div class="container-fluid">
         <form  method="POST">
             <?php render_input(["type" => "text", "id" => "artistName", "name" => "artistName", "label" => "Artist Name", "rules" => ["required" => true]]); ?>
