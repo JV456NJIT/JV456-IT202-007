@@ -33,7 +33,6 @@ if (count($_POST) > 0) {
 }
 
 if ($id > 0) {
-    echo "ID:", $id;
     $db = getDB();
     $query = "SELECT id, description, image, artist, venue, country, locality, time FROM Events WHERE id='$id'";
     $stmt = $db->prepare($query);
@@ -60,8 +59,8 @@ if ($id > 0) {
         <?php render_input(["type" => "text", "id" => "artistName", "name" => "artistName", "label" => "Artist Name", "rules" => ["minlength" => 2, "required" => true], "value" => se($event, "artist", "", false)]); ?>
         <?php render_input(["type" => "text", "id" => "eventVenue", "name" => "eventVenue", "label" => "Event Venue", "rules" => ["required" => true], "value" => se($event, "venue", "", false)]); ?>
         <?php render_input(["type" => "text", "id" => "eventCountry", "name" => "eventCountry", "label" => "Event Country", "rules" => ["required" => true], "value" => se($event, "country", "", false)]); ?>
-        <?php render_input(["type" => "text", "id" => "eventLocality", "name" => "eventLocality", "label" => "Event Locality", "rules" => ["required" => true], "value" => se($event, "locality", "", false)]); ?>
-        <?php render_input(["type" => "text", "id" => "eventTime", "name" => "eventTime", "label" => "Event Time", "rules" => ["required" => true],"value" => se($event, "time", "", false)]); ?>
+        <?php render_input(["type" => "text", "id" => "eventLocality", "name" => "eventLocality", "label" => "Event Locality (State/Province)", "rules" => ["required" => true], "value" => se($event, "locality", "", false)]); ?>
+        <?php render_input(["type" => "text", "id" => "eventTime", "name" => "eventTime", "label" => "Event Time: Enter in YYYY-MM-DD HH:MM:SS Format ie: 2018-08-03 15:30:15", "rules" => ["required" => true],"value" => se($event, "time", "", false)]); ?>
         <?php render_input(["type" => "text", "id" => "eventImage", "name" => "eventImage", "label" => "Event Image", "rules" => ["required" => true],"value" => se($event, "image", "", false)]); ?>
         <?php render_button(["text" => "Save", "type" => "submit"]); ?>
     </form>
