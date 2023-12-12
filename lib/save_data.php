@@ -12,8 +12,7 @@ function save_data($data, $ignore = ["submit"]){
     $timeData = date('Y-m-d H:i:s', strtotime($timeData));
     $api_idData = $artistData . ":MANUAL";
     $time = time();
-    echo $time, "<br>";
-    $modified = date("Y-m-d H:i:s", $time);
+    $modified = date('Y-m-d H:i:s', $time);
     echo $modified;
     $query = "INSERT INTO Events (api_id, description, image, artist , venue, country, locality, time, modified) VALUES(:api_id, :description, :image, :artist, :venue, :country, :locality, :time, :modified) ON DUPLICATE KEY UPDATE api_id=api_id";
     $stmt = $db->prepare($query);
@@ -25,7 +24,7 @@ function save_data($data, $ignore = ["submit"]){
     $stmt->bindValue(':country',$countryData,PDO::PARAM_STR);
     $stmt->bindValue(':locality',$localityData,PDO::PARAM_STR);
     $stmt->bindValue(':time',$timeData,PDO::PARAM_STR);
-    $stmt->bindValue(':modified',$modified.PDO::PARAM_STR);
+    $stmt->bindValue(':modified',$modified,PDO::PARAM_STR);
     try {
         $stmt->execute();
         return $db->lastInsertId();
