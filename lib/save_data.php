@@ -11,8 +11,10 @@ function save_data($data, $ignore = ["submit"]){
     $descriptionData = $artistData . " at the " . $venueData . " on " . $timeDataDescription;
     $timeData = date('Y-m-d H:i:s', strtotime($timeData));
     $api_idData = $artistData . ":MANUAL";
-    date_default_timezone_set('America/New_York');
-    $modified = date('Y-m-d H:i:s', time());
+    $time = time();
+    echo $time, "<br>";
+    $modified = date("Y-m-d H:i:s", $time);
+    echo $modified;
     $query = "INSERT INTO Events (api_id, description, image, artist , venue, country, locality, time, modified) VALUES(:api_id, :description, :image, :artist, :venue, :country, :locality, :time, :modified) ON DUPLICATE KEY UPDATE api_id=api_id";
     $stmt = $db->prepare($query);
     $stmt->bindValue(':api_id',$api_idData,PDO::PARAM_STR);
