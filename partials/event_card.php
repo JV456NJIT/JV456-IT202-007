@@ -25,7 +25,9 @@
             <?php if (has_role("Admin")) : ?>
                 <div class="row mt-1 g-1">
                     <?php $url = get_url("admin/event_profile.php?id=$id", true); ?>
-                    <a class="btn btn-secondary col me-1" href="<?php se($url, true); ?>">Edit Event</a>
+                    <a class="btn btn-secondary col me-1" href="<?php se($url, true); ?>">Edit</a>
+                    <?php $url = get_url("admin/disable_event.php?id=$id", true); ?>
+                    <a class="btn btn-danger col" href="<?php se($url, true); ?>">Delete</a>
                 </div>
             <?php endif; ?>
         </div>
