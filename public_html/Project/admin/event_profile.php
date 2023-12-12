@@ -25,7 +25,6 @@ if (count($_POST) > 0) {
     $event_id = -1;
     if (validate_event($_POST)) {
         $event_id = save_data($_POST);
-        echo "<br>ID1:", $event_id, "<br>";
     }
     if ($event_id > 0) {
         flash("Successfully set profile for " . $event["artistName"], "success");
@@ -36,9 +35,8 @@ if (count($_POST) > 0) {
 if ($id > 0) {
     echo "ID:", $id;
     $db = getDB();
-    $query = "SELECT id, description, image, artist, location, time FROM Events WHERE id='$id'";
+    $query = "SELECT id, description, image, artist, venue, country, locality, time FROM Events WHERE id='$id'";
     $stmt = $db->prepare($query);
-    //$stmt->bindValue(':id',$id,PDO::PARAM_INT);
     try {
         $stmt->execute();
         $result = $stmt->fetch();
@@ -60,9 +58,11 @@ if ($id > 0) {
     <h1>Event Profile</h1>
     <form method="POST">
         <?php render_input(["type" => "text", "id" => "artistName", "name" => "artistName", "label" => "Artist Name", "rules" => ["minlength" => 2, "required" => true], "value" => se($event, "artist", "", false)]); ?>
-        <?php render_input(["type" => "text", "id" => "eventLocation", "name" => "eventLocation", "label" => "Event Location", "rules" => ["required" => true], "value" => se($event, "location", "", false)]); ?>
-        <?php render_input(["type" => "text", "id" => "eventTime", "name" => "eventTime", "label" => "Event Time", "value" => se($event, "time", "", false)]); ?>
-        <?php render_input(["type" => "text", "id" => "eventImage", "name" => "eventImage", "label" => "Event Image", "value" => se($event, "image", "", false)]); ?>
+        <?php render_input(["type" => "text", "id" => "eventVenue", "name" => "eventVenue", "label" => "Event Venue", "rules" => ["required" => true], "value" => se($event, "venue", "", false)]); ?>
+        <?php render_input(["type" => "text", "id" => "eventCountry", "name" => "eventCountry", "label" => "Event Country", "rules" => ["required" => true], "value" => se($event, "country", "", false)]); ?>
+        <?php render_input(["type" => "text", "id" => "eventLocality", "name" => "eventLocality", "label" => "Event Locality", "rules" => ["required" => true], "value" => se($event, "locality", "", false)]); ?>
+        <?php render_input(["type" => "text", "id" => "eventTime", "name" => "eventTime", "label" => "Event Time", "rules" => ["required" => true],"value" => se($event, "time", "", false)]); ?>
+        <?php render_input(["type" => "text", "id" => "eventImage", "name" => "eventImage", "label" => "Event Image", "rules" => ["required" => true],"value" => se($event, "image", "", false)]); ?>
         <?php render_button(["text" => "Save", "type" => "submit"]); ?>
     </form>
 </div>
