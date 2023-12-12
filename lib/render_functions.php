@@ -14,3 +14,8 @@ function render_table($data = array())
 {
     include(__DIR__ . "/../partials/table.php");
 }
+
+function render_event_list_item($data)
+{
+    include(__DIR__ . "/../partials/event_card.php");
+}

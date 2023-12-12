@@ -4,7 +4,7 @@ require(__DIR__ . "/../../../partials/nav.php");
 
 if (!has_role("Admin")) {
     flash("You don't have permission to view this page", "warning");
-    die(header("Location: $BASE_PATH" . "/home.php"));
+    die(header("Location: $BASE_PATH" . "home.php"));
 }
 //attempt to apply
 if (isset($_POST["users"]) && isset($_POST["roles"])) {
@@ -45,6 +45,7 @@ try {
 
 //search for user by username
 $users = [];
+$username = "";
 if (isset($_POST["username"])) {
     $username = se($_POST, "username", "", false);
     if (!empty($username)) {
@@ -114,5 +115,5 @@ if (isset($_POST["username"])) {
 </div>
 <?php
 //note we need to go up 1 more directory
-require_once(__DIR__ . "/../../../partials/flash.php");
+require_once(__DIR__ . "/../../../partials/footer.php");
 ?>
