@@ -45,6 +45,47 @@ function search_events(){
     return [];
 }
 
+function search_attending($user_id){
+    $db = getDB();
+    $query = "SELECT event_id FROM Attending WHERE user_id='$user_id'";
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    } catch (PDOException $e) {
+        error_log("Error fetching breeds from db: " . var_export($e, true));
+    }
+    return [];
+}
+
+function get_attending($event_id){
+    $db = getDB();
+    $query = "SELECT id, api_id, description, image, artist, venue, country, locality, time FROM Events
+    WHERE id IN (";
+    $i = 0;
+    foreach ($event_id as $id ){
+        $curr_id =  $id["event_id"];
+        $query.="'$curr_id'";
+        $next = next($event_id);
+        if ($next == null){
+            $query .=")";
+            continue;
+        }else{
+            $query .=", ";
+            $i++;
+        }
+    }
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    } catch (PDOException $e) {
+        error_log("Error fetching breeds from db: " . var_export($e, true));
+    }
+    return [];
+}
 
 function validate_event($event){
     error_log("event: " . var_export($event, true));
