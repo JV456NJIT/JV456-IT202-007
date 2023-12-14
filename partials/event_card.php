@@ -16,11 +16,11 @@
         <div class="card-footer">
             <?php $id = se($data, "id", -1, false);
             ?>
-            <div class="row">
-                <?php
-                $url = get_url("event_profile.php?id=$id", true);
-                ?>
-                <a class="btn btn-primary col" href="<?php se($url, true); ?>">Check Event</a>
+            <div class="row mt-1 g-1">
+                <?php $url = get_url("event_profile.php?id=$id", true); ?>
+                <a class="btn btn-primary col me-1" href="<?php se($url, true); ?>">Event Details</a>
+                <?php $url = get_url("attending.php?id=$id", true); ?>
+                <a class="btn btn-primary col me-1" href="<?php se($url, true); ?>">Add to Attending</a>
             </div>
             <?php if (has_role("Admin")) : ?>
                 <div class="row mt-1 g-1">
